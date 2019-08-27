@@ -8,6 +8,6 @@ RUN cd home/ \
 
 WORKDIR /home/Online-store_Phase2_server
 
-EXPOSE 8000
+EXPOSE 8081
 
 CMD ["nodemon", "src/index.js"]
