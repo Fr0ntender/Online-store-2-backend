@@ -1,11 +1,9 @@
-const formData = require('express-form-data')
 const bodyParser = require('body-parser')
 const express = require('express')
-const multer  = require('multer')
+//const multer  = require('multer')
 const cors = require('cors')
-const path = require('path')
-const fs = require('fs')
-const os = require('os')
+// const fs = require('fs')
+// const os = require('os')
 
 const db = require('./utils/DataBaseUtils')
 
@@ -14,11 +12,8 @@ const {
     apiPrefix
 } = require('../etc/config.json')
 
-const upload = multer({ dest: 'src/assets/' })
-
 // Initialization of express application
 const app = express()
-
 
 // Set up connection of database
 db.setUpConnection()
