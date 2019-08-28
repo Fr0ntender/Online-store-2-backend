@@ -34,31 +34,31 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // RESTful api handlers
-app.get('/product', (req, res) => {
+app.get('/api/product', (req, res) => {
     db.listProduct()
         .then(data => res.send(data))
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.post('/product/add', (req, res) => {
+app.post('/api/product/add', (req, res) => {
     db.createProduct(req.body)
         .then(data => res.send(data))
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.post('/product/change/:id', (req, res) => {
+app.post('/api/product/change/:id', (req, res) => {
     db.changeProduct(req.params.id, req.body)
         .then(data => res.send(data))
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.post('/product/sort', (req, res) => {
+app.post('/api/product/sort', (req, res) => {
     db.sortProduct(req.body.state, req.body.name)
         .then(data => res.send(data))
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.delete('/product/:id', (req, res) => {
+app.delete('/api/product/:id', (req, res) => {
     db.deleteProduct(req.params.id).then(data => res.send(data))
 })
 
