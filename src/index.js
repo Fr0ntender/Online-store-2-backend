@@ -9,7 +9,6 @@ const db = require('./utils/DataBaseUtils')
 
 const {
     prodUrl,
-    prodPort,
     devUrl,
     devPort
 } = require('../etc/config.json')
