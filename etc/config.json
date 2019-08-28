@@ -3,7 +3,7 @@
     "devPort": "8081",
     "db":{
         "name": "OnlineStore",
-        "host": "localhost",
+        "host": "db",
         "port": 27017
     }
 }
