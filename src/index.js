@@ -17,9 +17,6 @@ const {
 const apiPrefix = process.env.NODE_ENV === 'development' ? `${devUrl}:${devPort}`
 : prodUrl
 
-const serverPort = process.env.NODE_ENV === 'development' ? devPort
-: prodPort
-
 // Initialization of express application
 const app = express()
 
@@ -62,6 +59,6 @@ app.delete('/api/product/:id', (req, res) => {
     db.deleteProduct(req.params.id).then(data => res.send(data))
 })
 
-app.listen(serverPort, function () {
+app.listen(devPort, function () {
     console.log(`Server is up and running on port ${apiPrefix}`)
 })

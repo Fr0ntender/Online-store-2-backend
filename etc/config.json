@@ -1,6 +1,5 @@
 {
     "prodUrl": "http://api.frost0x.ru",
-    "prodPort": "80",
     "devUrl": "http://localhost",
     "devPort": "8081",
     "db":{
