@@ -8,9 +8,17 @@ const cors = require('cors')
 const db = require('./utils/DataBaseUtils')
 
 const {
-    serverPort,
-    apiPrefix
+    prodUrl,
+    prodPort,
+    devUrl,
+    devPort
 } = require('../etc/config.json')
+
+const apiPrefix = process.env.NODE_ENV === 'development' ? `${devUrl}:${devPort}`
+: prodUrl
+
+const serverPort = process.env.NODE_ENV === 'development' ? devPort
+: prodPort
 
 // Initialization of express application
 const app = express()
