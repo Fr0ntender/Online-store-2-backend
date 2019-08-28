@@ -8,13 +8,9 @@ const cors = require('cors')
 const db = require('./utils/DataBaseUtils')
 
 const {
-    prodUrl,
     devUrl,
     devPort
 } = require('../etc/config.json')
-
-const apiPrefix = process.env.NODE_ENV === 'development' ? `${devUrl}:${devPort}`
-: prodUrl
 
 // Initialization of express application
 const app = express()
@@ -59,5 +55,5 @@ app.delete('/api/product/:id', (req, res) => {
 })
 
 app.listen(devPort, function () {
-    console.log(`Server is up and running on port ${apiPrefix}`)
+    console.log(`Server is up and running on port ${devUrl}:${devPort}`)
 })
