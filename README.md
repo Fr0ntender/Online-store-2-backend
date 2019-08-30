@@ -8,9 +8,10 @@ The code is written very simply only to support the functionality of the client,
 
 Client code is available here - https://github.com/Frost0x/Online-store_Phase2_client
 
-To create the northern part, I used: Node / Express / Mongoose.
+To create the client, I used: React / Redux / Styled Components.
+To create the server, I used: Node / Express / Mongoose.
 Database: MongoDB.
-To deploy the application, I use AWS / Ubuntu / Docker-Compose
+For deployment, I used: AWS ES2 / Ubuntu / Docker-Compose.
 
 The application is available at https://frost0x.ru
 
