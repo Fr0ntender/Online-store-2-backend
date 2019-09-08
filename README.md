@@ -16,7 +16,7 @@ Database: MongoDB.
 
 For deployment, I used: AWS ES2 / Ubuntu / Docker-Compose.
 
-The application is available at https://frost0x.ru
+The application is available at https://app1.frost0x.ru/
 
 ### Runs the app in the development mode. 
 
