@@ -4,19 +4,16 @@ const config = require('../../etc/config.json')
 
 const Product = mongoose.model('Product');
 
-exports.setUpConnection = setUpConnection
-function setUpConnection() {
+exports.setUpConnection = () => {
     mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, { useNewUrlParser: true })
 
 }
 
-exports.listProduct = listProduct
-function listProduct() {
+exports.listProduct = () => {
     return Product.find()
 }
 
-exports.createProduct = createProduct
-function createProduct(data) {
+exports.createProduct = data => {
     const product = new Product({
         productId: data.productId,
         productImg: data.productImg,
@@ -33,8 +30,7 @@ function createProduct(data) {
     return product.save()
 }
 
-exports.changeProduct = changeProduct
-function changeProduct(id, data) {
+exports.changeProduct = (id, data) => {
     return Product.updateOne(
         {
             _id: id
@@ -55,8 +51,7 @@ function changeProduct(id, data) {
     )
 }
 
-exports.sortProduct = sortProduct
-function sortProduct(state, name) {
+exports.sortProduct = (state, name) => {
     if (name === 'Name') {
         if (!state) {
             return Product.find({}).sort({ productName: -1 })
@@ -72,7 +67,6 @@ function sortProduct(state, name) {
     }
 }
 
-exports.deleteProduct = deleteProduct
-function deleteProduct(id) {
+exports.deleteProduct = id => {
     return Product.findById(id).remove()
 }
