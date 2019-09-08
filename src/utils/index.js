@@ -1,12 +1,17 @@
-require('../models/Product')
+const Product = require('../models/Product')
 const mongoose = require('mongoose')
-const config = require('../../etc/config.json')
+const { database, devHost } = require('../etc/config.json')
 
-const Product = mongoose.model('Product');
+const host = process.env.NODE_ENV === 'development' ? devHost
+: database.host
 
 exports.setUpConnection = () => {
-    mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, { useNewUrlParser: true })
-
+    mongoose.connect(`mongodb://${host}:${database.port}/${database.name}`)
+    mongoose.set('useCreateIndex', true)
+    mongoose.set('useNewUrlParser', true)
+    mongoose.set('useFindAndModify', false)
+    mongoose.connection.on(`error`, err => console.log(`Connection error: ${err}`))
+    mongoose.connection.once(`open`, () => console.log(`DB connected`))
 }
 
 exports.listProduct = () => {
@@ -65,6 +70,10 @@ exports.sortProduct = (state, name) => {
             return Product.find({}).sort({ productYear: 1 })
         }
     }
+}
+
+exports.findProduct = productName => {
+    return Product.find({ productName: { $regex: productName, $options: "i" }})
 }
 
 exports.deleteProduct = id => {
