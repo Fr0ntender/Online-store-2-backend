@@ -1,16 +1,9 @@
-const bodyParser = require('body-parser')
-const express = require('express')
-//const multer  = require('multer')
-const cors = require('cors')
-// const fs = require('fs')
-// const os = require('os')
+const bodyParser = require('body-parser'),
+    express = require('express'),
+    cors = require('cors')
 
-const db = require('./utils/DataBaseUtils')
-
-const {
-    devUrl,
-    devPort
-} = require('../etc/config.json')
+const { devUrl, devPort } = require('../etc/config.json'),
+    db = require('./utils/DataBaseUtils')
 
 // Initialization of express application
 const app = express()
