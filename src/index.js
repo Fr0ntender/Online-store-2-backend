@@ -21,40 +21,40 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // RESTful api handlers
-app.get('/api/product', (req, res) => {
-    db.listProduct()
+app.get('/api/product', async (req, res) => {
+    await db.listProduct()
         .then(data => res.send(data))
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.post('/api/product/add', (req, res) => {
-    db.createProduct(req.body)
+app.post('/api/product/add', async (req, res) => {
+    await db.createProduct(req.body)
         .then(data => res.send(data))
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.post('/api/product/change/:id', (req, res) => {
-    db.changeProduct(req.params.id, req.body)
+app.post('/api/product/change/:id', async (req, res) => {
+    await db.changeProduct(req.params.id, req.body)
         .then(data => res.send(data))
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.post('/api/product/sort', (req, res) => {
-    db.sortProduct(req.body.state, req.body.name)
+app.post('/api/product/sort', async (req, res) => {
+    await db.sortProduct(req.body.state, req.body.name)
         .then(data => res.send(data))
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.post('/api/product/find', (req, res) => {
-    db.findProduct(req.body.name)
+app.post('/api/product/find', async (req, res) => {
+    await db.findProduct(req.body.name)
         .then(data => res.send(data))
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.delete('/api/product/:id', (req, res) => {
-    db.deleteProduct(req.params.id).then(data => res.send(data))
+app.delete('/api/product/:id', async (req, res) => {
+    await db.deleteProduct(req.params.id).then(data => res.send(data))
 })
 
-app.listen(devPort, function () {
+app.listen(devPort, () => {
     console.log(`Server running on ${host}:${devPort}`)
 })
