@@ -1,27 +1,17 @@
-# Test application - part of the online store - Phase 2 / server.
+# The online store - Phase 2 - server.  
+This is the second demo application, which is a micro part of the functionality of the online store with a simplified admin control panel. To login to the admin panel, use "test" as your login and password.  
+It differs from the first version in that the data is stored in MongoDB.
 
-This application is a small part of the functionality of an online store with a simplified admin control panel, which can be entered using the “test” as a username and password.
-The application is intended to demonstrate the code.
+In development used:  
+Сlient, I used: React / Redux / Styled Components;  
+Server: Node / Express / Mongoose;  
+Database: MongoDB;  
+Deployment: AWS ES2 / Ubuntu / Docker-Compose.  
 
-The server is designed to process client requests and store information in a database.
-The code is written very simply only to support the functionality of the client, in the future, the code will be supplemented.
+The app is available here - https://app1.frost0x.ru/
 
-Client code is available here - https://github.com/Frost0x/Online-store_Phase2_client
-
-To create the client, I used: React / Redux / Styled Components.
-
-To create the server, I used: Node / Express / Mongoose. 
-
-Database: MongoDB.
-
-For deployment, I used: AWS ES2 / Ubuntu / Docker-Compose.
-
-The application is available at https://app1.frost0x.ru/
-
-### Runs the app in the development mode. 
-
+### Runs the app in the development mode.  
 `yarn start`
 
-### Builds the app for production to the `build` folder.
-
+### Builds the app for production to the `build` folder.  
 `yarn build`
