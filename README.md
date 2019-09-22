@@ -1,6 +1,5 @@
-# The online store - Phase 2 - server.  
-This is the second demo application, which is a micro part of the functionality of the online store with a simplified admin control panel. To login to the admin panel, use "test" as your login and password.  
-It differs from the first version in that the data is stored in MongoDB.
+# The online store - 1 - server.  
+This is a demo application that is a micro - part of the functionality of the online store with a simplified admin control panel. To enter the admin panel, use "test" as your login and password.
 
 In development used:  
 Сlient, I used: React / Redux / Styled Components;  

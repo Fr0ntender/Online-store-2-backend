@@ -1,6 +1,7 @@
-FROM frostox/custom-node:12.9.0
+FROM node:12.10.0-alpine
 
-RUN cd home/ \
+RUN apk add git \
+    && cd home/ \
     && git clone https://github.com/Frost0x/Online-store_Phase2_server.git \
     && cd Online-store_Phase2_server \
     && npm i -g nodemon \
