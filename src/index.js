@@ -2,16 +2,18 @@ const bodyParser = require('body-parser'),
     express = require('express'),
     cors = require('cors')
 
-const { database, devUrl, devPort } = require('./etc/config.json'),
-    db = require('./utils')
+const {
+    setUpConnection,
+    createProduct,
+    changeProduct,
+    deleteProduct,
+    sortProduct,
+    listProduct,
+    findProduct
+} = require('./utils')
 
 // Initialization of express application
 const app = express()
-const host = process.env.NODE_ENV === 'development' ? devUrl
-: `http://${database.host}`
-
-// Set up connection of database
-db.setUpConnection()
 
 // Allow requests from any origin
 app.use(cors({ origin: '*' }))
@@ -20,41 +22,46 @@ app.use(cors({ origin: '*' }))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
+// Set up connection of database
+setUpConnection()
+
 // RESTful api handlers
-app.get('/api/product', async (req, res) => {
-    await db.listProduct()
+app.get('/api/product', (req, res) => {
+    listProduct()
         .then(data => res.send(data))
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.post('/api/product/add', async (req, res) => {
-    await db.createProduct(req.body)
+app.post('/api/product/sort', (req, res) => {
+    sortProduct(req.body.state, req.body.name)
         .then(data => res.send(data))
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.post('/api/product/change/:id', async (req, res) => {
-    await db.changeProduct(req.params.id, req.body)
+app.post('/api/product/find', (req, res) => {
+    findProduct(req.body.name)
         .then(data => res.send(data))
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.post('/api/product/sort', async (req, res) => {
-    await db.sortProduct(req.body.state, req.body.name)
-        .then(data => res.send(data))
+app.post('/api/product/add', (req, res) => {
+    createProduct(req.body)
+        .then(() => res.send('succses'))
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.post('/api/product/find', async (req, res) => {
-    await db.findProduct(req.body.name)
-        .then(data => res.send(data))
+app.post('/api/product/change/:id', (req, res) => {
+    changeProduct(req.params.id, req.body)
+        .then(() => res.send('succses'))
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.delete('/api/product/:id', async (req, res) => {
-    await db.deleteProduct(req.params.id).then(data => res.send(data))
+app.delete('/api/product/:id', (req, res) => {
+    deleteProduct(req.params.id)
+        .then(() => res.send('succses'))
+        .catch(err => res.send(`Error ${err}`))
 })
 
-app.listen(devPort, () => {
-    console.log(`Server running on ${host}:${devPort}`)
+app.listen(process.env.LS_PORT, () => {
+    console.log(`Server running on http://localhost:${process.env.LS_PORT}`)
 })

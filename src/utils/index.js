@@ -1,24 +1,23 @@
-const Product = require('../models/Product')
 const mongoose = require('mongoose')
-const { database, devHost } = require('../etc/config.json')
 
-const host = process.env.NODE_ENV === 'development' ? devHost
-: database.host
+const Product = require('../models/Product')
 
 exports.setUpConnection = () => {
-    mongoose.connect(`mongodb://${host}:${database.port}/${database.name}`)
-    mongoose.set('useCreateIndex', true)
-    mongoose.set('useNewUrlParser', true)
-    mongoose.set('useFindAndModify', false)
-    mongoose.connection.on(`error`, err => console.log(`Connection error: ${err}`))
-    mongoose.connection.once(`open`, () => console.log(`DB connected`))
+    mongoose.connect(process.env.DB_HOST, { 
+        useNewUrlParser: true,
+        useUnifiedTopology: true 
+    })
+        .then(() => console.log(`DB successfully connected`))
+        .catch(err => console.log(`Connection error: ${err}`))
 }
 
-exports.listProduct = () => {
-    return Product.find()
-}
+exports.listProduct = () => Product.find()
 
-exports.createProduct = data => {
+exports.findProduct = productName => Product.find({ productName: { $regex: productName, $options: "i" } })
+
+exports.deleteProduct = async id => await Product.deleteOne({ _id: id}, err => { if (err) return err })
+
+exports.createProduct = async data => {
     const product = new Product({
         productId: data.productId,
         productImg: data.productImg,
@@ -31,29 +30,26 @@ exports.createProduct = data => {
         productLastName: data.productLastName,
         productFirstName: data.productFirstName
     })
-
-    return product.save()
+    return await product.save()
 }
 
-exports.changeProduct = (id, data) => {
-    return Product.updateOne(
-        {
+exports.changeProduct = async (id, data) => {
+    await Product.updateOne({
             _id: id
         }, {
-            $set: {
-                productId: data.productId,
-                productImg: data.productImg,
-                productIsbn: data.productIsbn,
-                productName: data.productName,
-                productVote: data.productVote,
-                productYear: data.productYear,
-                productPrice: data.productPrice,
-                productRating: data.productRating,
-                productLastName: data.productLastName,
-                productFirstName: data.productFirstName
-            }
-        }, err => { if (err) console.error(err) }
-    )
+        $set: {
+            productId: data.productId,
+            productImg: data.productImg,
+            productIsbn: data.productIsbn,
+            productName: data.productName,
+            productVote: data.productVote,
+            productYear: data.productYear,
+            productPrice: data.productPrice,
+            productRating: data.productRating,
+            productLastName: data.productLastName,
+            productFirstName: data.productFirstName
+        }
+    }, err => { if (err) return err })
 }
 
 exports.sortProduct = (state, name) => {
@@ -70,12 +66,4 @@ exports.sortProduct = (state, name) => {
             return Product.find({}).sort({ productYear: 1 })
         }
     }
-}
-
-exports.findProduct = productName => {
-    return Product.find({ productName: { $regex: productName, $options: "i" }})
-}
-
-exports.deleteProduct = id => {
-    return Product.findById(id).remove()
 }
