@@ -1,30 +1,21 @@
-Carefully read the following end user license agreement ("AGREEMENT") licensing the software "Online store / ecommerce - Phase 2" (the"SOFTWARE") created Frost0x ("AUTHOR").
+The MIT License (MIT)
 
-By accepting this agreement (or by cloning the repository, downloading the repository, copying the code, copying parts of the code) you agree to the terms of this agreement.
+Copyright (c) 2019 Fr0ntender
 
-1. License
-You are granted a demonstration license to use the SOFTWARE for informational purposes.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-2. Restrictions
-The author reserves the right to revoke this right of distribution, at any time, for any reason or without it
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-3. The termination of the agreement
-This Agreement will remain in force until terminated. This Agreement will automatically terminate without notice from the AUTHOR if You fail to comply with any of the terms of this License. Upon termination, you must destroy the software and all copies of the SOFTWARE in your possession and the persons to whom it was distributed through you. You may terminate this License at any time by destroying the SOFTWARE and all copies thereof at yourself and the persons to whom it was distributed through you. Upon termination of this license for any reason, You remain bound by the provisions of section 2 above. Termination will be without prejudice to any rights the AUTHOR may have as a result of this AGREEMENT. 
-
-4. Disclaimer of warranties, limitation of remedies.
-The AUTHOR hereby excludes, to the fullest extent permitted by law, all warranties and conditions imposed by law, Statute, in accordance with the law or other than those expressly set forth herein.
-The SOFTWARE and all accompanying files, data and materials are distributed "as is" and without warranty of any kind, either express or implied. the author does not warrant or make any representations regarding the use, or results of use, of the SOFTWARE as to its correctness, accuracy, reliability, modernity, or otherwise. The entire risk of using this SOFTWARE is assumed by you. The AUTHOR makes no warranties or conditions, express or implied, including but not limited to warranties of MERCHANTABILITY or fitness for a particular purpose with respect to the SOFTWARE. No oral or written information or advice provided by the AUTHOR or his representatives shall create a warranty and you may not rely on any such information or advice. 
-
-IMPORTANT NOTICE: Nothing in this Agreement is intended to exclude or modify any statutory right, warranty, or condition under any country's fair trade act, trade practices act, or any similar consumer law, and shall not be construed as such. However, if permitted by such law, the AUTHOR's liability for breach of any such warranty or condition shall be limited to the re-supply of the SOFTWARE under this license if the author, in HIS sole discretion, deems it necessary to correct such breach. 
-
-In no event shall the AUTHOR be liable for indirect, special or incidental damages (including but not limited to damages for loss of business income, business interruption, loss of business information or computer programs) caused by the SOFTWARE and activities related to its use.
-
-5. Denial of responsibility 
-The SOFTWARE functions as a web page of the site” ""SOFTWARE SITE"), as well as a web page on the site of someone who uses the code of this SOFTWARE. 
-
-The SOFTWARE SITE functions in demo mode as part of an online store with a server and database. 
-You acknowledge that the SOFTWARE SITE provides the ability to use all features for informational purposes only.
-
-On the website of the SOFTWARE there is an administrator panel with which users can create new products, access to which is public which means that any users who have accepted this agreement can fill the content, which means that in fact, the AUTHOR has no direct control over the content posted on the website of the SOFTWARE, and in case of any violation of any rights/copyrights you, as the owner of any copyrighted material, must directly contact the AUTHOR to remove such content.
-
-If you would like to remove content from the SOFTWARE SITE database, send the copyright infringement notice (DMCA notice) to the AUTHOR according to the rules and laws mentioned in this DMCA policy, and the content will be removed after the copyright infringement notice is authenticated.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

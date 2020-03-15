@@ -1,9 +1,9 @@
 {
-    "name": "online-store-api",
+    "name": "online-store-2-backend",
     "version": "0.1.0",
     "private": true,
-    "author": "Frost0x",
-    "license": "ISC",
+    "author": "Fr0ntender",
+    "license": "MIT",
     "scripts": {
         "start": "nodemon -r dotenv/config src/index.js dotenv_config_path=.env.development"
     },
